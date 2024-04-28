@@ -1,14 +1,14 @@
+import 'package:coworking_mobile/src/core/constant/config.dart';
+import 'package:coworking_mobile/src/core/utils/logger.dart';
+import 'package:coworking_mobile/src/feature/app/logic/tracking_manager.dart';
+import 'package:coworking_mobile/src/feature/initialization/model/dependencies.dart';
+import 'package:coworking_mobile/src/feature/settings/bloc/settings_bloc.dart';
+import 'package:coworking_mobile/src/feature/settings/data/locale_datasource.dart';
+import 'package:coworking_mobile/src/feature/settings/data/locale_repository.dart';
+import 'package:coworking_mobile/src/feature/settings/data/theme_datasource.dart';
+import 'package:coworking_mobile/src/feature/settings/data/theme_mode_codec.dart';
+import 'package:coworking_mobile/src/feature/settings/data/theme_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sizzle_starter/src/core/constant/config.dart';
-import 'package:sizzle_starter/src/core/utils/logger.dart';
-import 'package:sizzle_starter/src/feature/app/logic/tracking_manager.dart';
-import 'package:sizzle_starter/src/feature/initialization/model/dependencies.dart';
-import 'package:sizzle_starter/src/feature/settings/bloc/settings_bloc.dart';
-import 'package:sizzle_starter/src/feature/settings/data/locale_datasource.dart';
-import 'package:sizzle_starter/src/feature/settings/data/locale_repository.dart';
-import 'package:sizzle_starter/src/feature/settings/data/theme_datasource.dart';
-import 'package:sizzle_starter/src/feature/settings/data/theme_mode_codec.dart';
-import 'package:sizzle_starter/src/feature/settings/data/theme_repository.dart';
 
 /// {@template initialization_processor}
 /// A class which is responsible for processing initialization steps.

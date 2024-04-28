@@ -1,6 +1,6 @@
+import 'package:coworking_mobile/src/feature/app/logic/tracking_manager.dart';
+import 'package:coworking_mobile/src/feature/settings/bloc/settings_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sizzle_starter/src/feature/app/logic/tracking_manager.dart';
-import 'package:sizzle_starter/src/feature/settings/bloc/settings_bloc.dart';
 
 /// {@template dependencies}
 /// Dependencies container

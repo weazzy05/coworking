@@ -5,18 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "sizzle_starter",
+      "name": "coworking_mobile",
       "request": "launch",
       "type": "dart"
     },
     {
-      "name": "sizzle_starter (profile mode)",
+      "name": "coworking_mobile (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"
     },
     {
-      "name": "sizzle_starter (release mode)",
+      "name": "coworking_mobile (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"
