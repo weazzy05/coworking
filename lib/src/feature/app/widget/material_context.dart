@@ -1,7 +1,8 @@
+import 'package:coworking_mobile/src/core/constant/localization/localization.dart';
+import 'package:coworking_mobile/src/feature/home/widget/home_screen.dart';
+import 'package:coworking_mobile/src/feature/settings/widget/settings_scope.dart';
 import 'package:flutter/material.dart';
-import 'package:sizzle_starter/src/core/constant/localization/localization.dart';
-import 'package:sizzle_starter/src/feature/home/widget/home_screen.dart';
-import 'package:sizzle_starter/src/feature/settings/widget/settings_scope.dart';
+import 'package:go_router/go_router.dart';
 
 /// {@template material_context}
 /// [MaterialContext] is an entry point to the material context.
@@ -21,14 +22,14 @@ class MaterialContext extends StatelessWidget {
     final theme = SettingsScope.themeOf(context).theme;
     final locale = SettingsScope.localeOf(context).locale;
 
-    return MaterialApp(
+    return MaterialApp.router(
       theme: theme.lightTheme,
       darkTheme: theme.darkTheme,
       themeMode: theme.mode,
       localizationsDelegates: Localization.localizationDelegates,
       supportedLocales: Localization.supportedLocales,
       locale: locale,
-      home: const HomeScreen(),
+      routerConfig: _router,
       // TODO: You may want to override the default text scaling behavior.
       builder: (context, child) => MediaQuery.withClampedTextScaling(
         key: _globalKey,
@@ -39,3 +40,18 @@ class MaterialContext extends StatelessWidget {
     );
   }
 }
+
+final _router = GoRouter(
+  routes: [
+    GoRoute(
+        path: '/',
+        builder: (context, state) => const HomeScreen(),
+        routes: [
+          GoRoute(
+            path: 'room/:roomId',
+            // FIXME detail
+            builder: (context, state) => const HomeScreen(),
+          ),
+        ]),
+  ],
+);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart' show Locale;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sizzle_starter/src/feature/app/model/app_theme.dart';
-import 'package:sizzle_starter/src/feature/settings/data/locale_repository.dart';
-import 'package:sizzle_starter/src/feature/settings/data/theme_repository.dart';
+import 'package:coworking_mobile/src/feature/app/model/app_theme.dart';
+import 'package:coworking_mobile/src/feature/settings/data/locale_repository.dart';
+import 'package:coworking_mobile/src/feature/settings/data/theme_repository.dart';
 
 part 'settings_bloc.freezed.dart';
 

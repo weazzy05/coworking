@@ -1,4 +1,4 @@
-import 'package:sizzle_starter/src/feature/initialization/model/environment.dart';
+import 'package:coworking_mobile/src/feature/initialization/model/environment.dart';
 
 /// {@template environment_store}
 /// Environment store

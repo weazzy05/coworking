@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:coworking_mobile/src/core/components/rest_client/rest_client.dart';
+import 'package:coworking_mobile/src/core/components/rest_client/src/auth/refresh_client.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:sizzle_starter/src/core/components/rest_client/rest_client.dart';
-import 'package:sizzle_starter/src/core/components/rest_client/src/auth/refresh_client.dart';
 
 import 'rest_client_test.dart';
 

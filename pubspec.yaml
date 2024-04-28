@@ -1,4 +1,4 @@
-name: sizzle_starter
+name: coworking_mobile
 description: >
   Highly scalable Flutter starter kit, designed with an optimal predefined structure 
   and inclusive of libraries that are widely applicable in numerous use cases.
@@ -30,6 +30,9 @@ dependencies:
   # BLoC
   flutter_bloc: ^8.1.3
   bloc_concurrency: ^0.2.2
+
+  # Routing
+  go_router: ^14.0.1
 
   # Codegen
   freezed_annotation: ^2.4.1

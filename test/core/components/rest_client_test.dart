@@ -3,10 +3,11 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:coworking_mobile/src/core/components/rest_client/rest_client.dart';
+import 'package:coworking_mobile/src/core/components/rest_client/src/rest_client_dio.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sizzle_starter/src/core/components/rest_client/rest_client.dart';
-import 'package:sizzle_starter/src/core/components/rest_client/src/rest_client_dio.dart';
+
 import 'auth_interceptor_test.dart' as auth_interceptor_test;
 
 Map<String, Object?> _generateJsonData(int length) => {
