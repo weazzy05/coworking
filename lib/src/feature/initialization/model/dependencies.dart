@@ -1,4 +1,6 @@
 import 'package:coworking_mobile/src/feature/app/logic/tracking_manager.dart';
+import 'package:coworking_mobile/src/feature/rooms_details/data/rooms_details_repository.dart';
+import 'package:coworking_mobile/src/feature/rooms_list/data/rooms_list_repository.dart';
 import 'package:coworking_mobile/src/feature/settings/bloc/settings_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,6 +13,8 @@ base class Dependencies {
     required this.sharedPreferences,
     required this.settingsBloc,
     required this.errorTrackingManager,
+    required this.roomsListRepository,
+    required this.roomsDetailsRepository,
   });
 
   /// [SharedPreferences] instance, used to store Key-Value pairs.
@@ -21,6 +25,11 @@ base class Dependencies {
 
   /// [ErrorTrackingManager] instance, used to report errors.
   final ErrorTrackingManager errorTrackingManager;
+
+  /// [RoomsListRepository] instance, used to room list repository.
+  final RoomsListRepository roomsListRepository;
+
+  final RoomsDetailsRepository roomsDetailsRepository;
 }
 
 /// {@template initialization_result}

@@ -1,0 +1,61 @@
+import 'dart:convert';
+
+import 'package:coworking_mobile/src/core/constant/mock_data.dart';
+import 'package:coworking_mobile/src/feature/rooms_list/model/rooms_dto.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+
+/// {@template pokemon_data_source}
+/// RoomList data source.
+/// {@endtemplate}
+abstract interface class RoomsListDataSource {
+  /// Get the list of rooms
+  Future<List<Rooms>> getRoomsList();
+}
+
+/// {@macro rooms_list_data_source}
+final class RoomsListDataSourceNetwork implements RoomsListDataSource {
+  final Client _client;
+
+  /// {@macro rooms_list_data_source}
+  const RoomsListDataSourceNetwork(this._client);
+
+  @override
+  Future<List<Rooms>> getRoomsList() async {
+    final response = await _client.get(Uri.parse('/rooms'));
+    final json = jsonDecode(response.body) as List<Object?>;
+
+    final rooms = json.map((e) {
+      if (e
+          case {
+            'id': final String id,
+            'square': final int square,
+            'city': final String city,
+            'duration': final Duration duration,
+            'imagesPath': final List<String> imagesPath,
+            'openTime': final TimeOfDay openTime,
+          }) {
+        return Rooms(
+            id: id,
+            square: square,
+            city: city,
+            duration: duration,
+            imagesPath: imagesPath,
+            openTime: openTime);
+      }
+
+      throw FormatException('Invalid response $e');
+    }).toList();
+
+    return rooms;
+  }
+}
+
+/// {@macro rooms_list_data_source}
+final class RoomsListDataSourceLocal implements RoomsListDataSource {
+  /// {@macro rooms_list_data_source}
+  const RoomsListDataSourceLocal();
+
+  @override
+  Future<List<Rooms>> getRoomsList() async => MockData.getRooms();
+}

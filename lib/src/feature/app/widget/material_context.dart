@@ -1,5 +1,6 @@
 import 'package:coworking_mobile/src/core/constant/localization/localization.dart';
-import 'package:coworking_mobile/src/feature/home/widget/home_screen.dart';
+import 'package:coworking_mobile/src/feature/rooms_details/widget/rooms_details_screen.dart';
+import 'package:coworking_mobile/src/feature/rooms_list/widget/rooms_list_screen.dart';
 import 'package:coworking_mobile/src/feature/settings/widget/settings_scope.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -44,14 +45,18 @@ class MaterialContext extends StatelessWidget {
 final _router = GoRouter(
   routes: [
     GoRoute(
-        path: '/',
-        builder: (context, state) => const HomeScreen(),
-        routes: [
-          GoRoute(
-            path: 'room/:roomId',
-            // FIXME detail
-            builder: (context, state) => const HomeScreen(),
+      path: '/',
+      builder: (context, state) => const RoomsListScreen(),
+      routes: [
+        GoRoute(
+          path: 'room/:roomId',
+          name: 'room_details',
+          // FIXME detail
+          builder: (context, state) => RoomsDetailsScreen(
+            roomId: state.pathParameters['roomId']!,
           ),
-        ]),
+        ),
+      ],
+    ),
   ],
 );
