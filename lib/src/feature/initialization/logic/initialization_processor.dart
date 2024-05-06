@@ -2,6 +2,10 @@ import 'package:coworking_mobile/src/core/constant/config.dart';
 import 'package:coworking_mobile/src/core/utils/logger.dart';
 import 'package:coworking_mobile/src/feature/app/logic/tracking_manager.dart';
 import 'package:coworking_mobile/src/feature/initialization/model/dependencies.dart';
+import 'package:coworking_mobile/src/feature/rooms_details/data/rooms_details_data_source.dart';
+import 'package:coworking_mobile/src/feature/rooms_details/data/rooms_details_repository.dart';
+import 'package:coworking_mobile/src/feature/rooms_list/data/rooms_list_data_source.dart';
+import 'package:coworking_mobile/src/feature/rooms_list/data/rooms_list_repository.dart';
 import 'package:coworking_mobile/src/feature/settings/bloc/settings_bloc.dart';
 import 'package:coworking_mobile/src/feature/settings/data/locale_datasource.dart';
 import 'package:coworking_mobile/src/feature/settings/data/locale_repository.dart';
@@ -24,11 +28,17 @@ final class InitializationProcessor {
     final sharedPreferences = await SharedPreferences.getInstance();
     final errorTrackingManager = await _initErrorTrackingManager();
     final settingsBloc = await _initSettingsBloc(sharedPreferences);
+    // TODO(gamzat) change DataSource
+    const roomsRepository = RoomsListRepositoryImpl(RoomsListDataSourceLocal());
+    const roomsDetailsRepository =
+        RoomsDetailsRepositoryImpl(RoomsDetailsDataSourceLocal());
 
     return Dependencies(
       sharedPreferences: sharedPreferences,
       settingsBloc: settingsBloc,
       errorTrackingManager: errorTrackingManager,
+      roomsListRepository: roomsRepository,
+      roomsDetailsRepository: roomsDetailsRepository,
     );
   }
 
