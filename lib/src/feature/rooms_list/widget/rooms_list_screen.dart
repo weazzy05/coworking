@@ -24,13 +24,22 @@ class RoomsListScreen extends StatefulWidget {
 
 class _RoomsListScreenState extends State<RoomsListScreen> {
   late final RoomsListCubit _roomsListCubit;
+  late Image image;
 
   @override
   void initState() {
+    super.initState();
     _roomsListCubit =
         RoomsListCubit(DependenciesScope.of(context).roomsListRepository)
           ..load();
-    super.initState();
+    image = Image.asset(PngAssetPath.roomListAppbar);
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    precacheImage(image.image, context);
   }
 
   @override
@@ -43,14 +52,33 @@ class _RoomsListScreenState extends State<RoomsListScreen> {
           flexibleSpace: Column(
             children: [
               Stack(children: [
-                Image.asset(PngAssetPath.roomListAppbar),
+                SizedBox(
+                  height: 120,
+                  width: MediaQuery.of(context).size.width,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fitWidth,
+                        image: AssetImage(PngAssetPath.roomListAppbar),
+                      ),
+                    ),
+                  ),
+                ),
+                // Image.asset(PngAssetPath.roomListAppbar),
                 Positioned(
                   bottom: 24,
                   left: 12,
-                  child: Image.asset(
-                    PngAssetPath.logo,
+                  child: SizedBox(
                     height: 28,
                     width: 160,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(PngAssetPath.logo),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ]),
@@ -62,13 +90,14 @@ class _RoomsListScreenState extends State<RoomsListScreen> {
           bloc: _roomsListCubit,
           builder: (context, state) => state.map(
             loaded: (data) => ListView(
+              addAutomaticKeepAlives: true,
               children: [
                 _PromotionPageView(
                   promotions: [
                     // TODO(gamzat): from fake to data
-                    PngAssetPath.promotionExample,
-                    PngAssetPath.promotionExample,
-                    PngAssetPath.promotionExample,
+                    // PngAssetPath.promotionExample,
+                    // PngAssetPath.promotionExample,
+                    // PngAssetPath.promotionExample,
                   ],
                 ),
                 ...data.roomsList.map(

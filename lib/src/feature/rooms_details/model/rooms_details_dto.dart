@@ -21,7 +21,6 @@ class RoomDetailEntity with _$RoomDetailEntity {
   factory RoomDetailEntity({
     required String title,
     required String description,
-    required int price,
     required List<String> includedAdvantages,
     required List<String> imagesPath,
   }) = _RoomDetailEntity;

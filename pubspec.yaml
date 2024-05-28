@@ -61,6 +61,7 @@ dependencies:
   path_provider: ^2.1.0
   mocktail: ^1.0.1
   flutter_svg: ^2.0.10+1
+  mailer: ^6.1.0
   
 dev_dependencies:
   # Testing
@@ -90,6 +91,12 @@ flutter:
     - assets/images/svg/
     - assets/images/png/rooms_fake/
     - assets/images/png/rooms_details_fake/
+    - assets/images/png/room_1/
+    - assets/images/png/room_2/
+    - assets/images/png/room_3/
+    - assets/images/png/room_4/
+    - assets/images/png/room_5/
+    - assets/images/png/room_6/
   fonts:
     - family: GTEestiProDisplay
       fonts:

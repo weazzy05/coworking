@@ -13,6 +13,7 @@ class RoomsListCubit extends Cubit<RoomsListState> {
     try {
       emit(RoomsListState.loading(roomsList: state.roomsList));
       final roomsList = await _roomsListRepository.getRooms();
+      await Future<void>.delayed(Duration(seconds: 3));
       emit(RoomsListState.loaded(roomsList: roomsList));
     } on Object catch (e, st) {
       onError(e, st);

@@ -23,6 +23,26 @@ class _RoomsCoworkingCardState extends State<RoomsCoworkingCard> {
   final PageController _cardPageController = PageController();
   int _currentIndexPage = 0;
 
+  List<ImageProvider> images = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    for (var image in widget.rooms.imagesPath) {
+      images.add(AssetImage(image));
+    }
+  }
+
+  @override
+  void didChangeDependencies() async {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    for (var image in images) {
+      if (mounted) await precacheImage(image, context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final rooms = widget.rooms;
@@ -46,13 +66,17 @@ class _RoomsCoworkingCardState extends State<RoomsCoworkingCard> {
             alignment: Alignment.center,
             children: [
               PageView.builder(
+                allowImplicitScrolling: true,
+                physics: AlwaysScrollableScrollPhysics(),
                 // TODO(gamzat): Network image?
-                itemBuilder: (context, index) => ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    rooms.imagesPath[index],
-                    fit: BoxFit.cover,
-                  ),
+                itemBuilder: (context, index) => Container(
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: DecorationImage(
+                        image: images[index],
+                        fit: BoxFit.cover,
+                      )),
                 ),
                 onPageChanged: (index) {
                   setState(() {
@@ -98,13 +122,6 @@ class _RoomsCoworkingCardState extends State<RoomsCoworkingCard> {
                   ],
                 ),
               ),
-              Positioned(
-                  right: 16,
-                  bottom: 24,
-                  child: Text(
-                    rooms.displayWorkingTime(),
-                    style: theme.textTheme.titleMedium,
-                  )),
               lengthPageView > 1
                   ? Positioned(
                       bottom: 14,

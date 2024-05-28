@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:coworking_mobile/src/core/constant/mock_data.dart';
 import 'package:coworking_mobile/src/feature/rooms_list/model/rooms_dto.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
 /// {@template pokemon_data_source}
@@ -31,17 +30,14 @@ final class RoomsListDataSourceNetwork implements RoomsListDataSource {
             'id': final String id,
             'square': final int square,
             'city': final String city,
-            'duration': final Duration duration,
             'imagesPath': final List<String> imagesPath,
-            'openTime': final TimeOfDay openTime,
           }) {
         return Rooms(
-            id: id,
-            square: square,
-            city: city,
-            duration: duration,
-            imagesPath: imagesPath,
-            openTime: openTime);
+          id: id,
+          square: square,
+          city: city,
+          imagesPath: imagesPath,
+        );
       }
 
       throw FormatException('Invalid response $e');

@@ -46,21 +46,10 @@ final class RoomsDetailsDataSourceLocal implements RoomsDetailsDataSource {
       titleImage: PngAssetPath.titleFakeRoom,
       rooms: [
         RoomDetailEntity(
-          title: 'Открытая зона рабочих мест',
-          description:
-              '25 рабочих мест в открытой зоне, открытая зона с полной рабочей комплектацией. Выбор места – вопрос ваших предпочтений.',
-          price: 1100,
-          includedAdvantages: [
-            'Свежие фрукты',
-            'Чай. кофе, вода',
-            'Сканирование и ч/б печать',
-            'Переговорные комнаты',
-            'Свежая выпечка, снэки',
-            'Безлимитный скоростной Wi-Fi',
-          ],
-          imagesPath: [
-            PngAssetPath.roomDetailsExample1,
-          ],
+          title: '',
+          description: MockData.getDescriptionForRoomFromId(id),
+          includedAdvantages: MockData.getIncludedAdvantagesForRoomFromId(id),
+          imagesPath: [MockData.getImageForRoomFromId(id)],
         ),
       ],
     );
