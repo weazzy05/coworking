@@ -1,19 +1,53 @@
 {
-    "@@locale": "en",
-    "appTitle": "coworking_mobile",
-    "@appTitle": {
-      "description": "The title of the application"
-    },
-    "custom_colors": "Custom Colors",
-    "@custom_colors": {
-      "description": "Custom colors for the application"
-    },
-    "default_themes": "Default Themes",
-    "@default_themes": {
-      "description": "Default themes for the application"
-    },
-    "locales": "Locales",
-    "@locales": {
-      "description": "Locales for the application"
+  "@@locale": "en",
+  "area": "{squareArea}кв метров",
+  "@area": {
+    "description": "Количество квадратных метров в комнате",
+    "placeholders": {
+      "squareArea": {
+        "type": "int",
+        "example": "300"
+      }
     }
-  }
+  },
+  "appTitle": "coworking_mobile",
+  "@appTitle": {
+    "description": "Заголовок приложения"
+  },
+  "custom_colors": "Кастомный цвет",
+  "@custom_colors": {
+    "description": "Кастомный цвет приложения"
+  },
+  "default_themes": "Тема по умолчанию",
+  "@default_themes": {
+    "description": "Тема по умолчанию для приложения"
+  },
+  "locales": "Локали",
+  "@locales": {
+    "description": "Локализации для приложения"
+  },
+  "promotions": "Акции и активации",
+  "includedAdvantages": "В аренду включено:",
+  "priceInHour": "{price}р/час",
+  "@price": {
+    "description": "Стоимость в час аренды",
+    "placeholders": {
+      "price": {
+        "type": "int",
+        "example": "1100"
+      }
+    }
+  },
+  "submitRequest": "Оставить заявку",
+  "send": "Отправить",
+  "findOutPrice" : "Узнать цену",
+  "submitRequestForContactYou": "Оставляйте заявку чтобы выбрать  формат работы и мы с вами свяжемся",
+  "location": "Локация",
+  "name": "Имя",
+  "phone": "Телефон",
+  "email": "E-mail",
+  "close": "Закрыть",
+  "look3dtour": "Посмотреть 3D Тур",
+  "back": "Назад",
+  "applicationHasBeenSent": "Заявка отправлена с вами\nскоро свяжется наш специалист"
+}
