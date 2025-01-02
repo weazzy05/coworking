@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// {@template dashboard_screen}
 /// Protected screen, visible to authenticated users only.
@@ -190,6 +191,30 @@ class RoomDetailBody extends StatelessWidget {
               },
               child: Text(
                 Localization.of(context).findOutPrice,
+                style: theme.textTheme.titleSmall?.copyWith(
+                  color: AppColors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12), // <-- Radius
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 24),
+          SizedBox(
+            height: 52,
+            width: 358,
+            child: ElevatedButton(
+              onPressed: () async {
+                final Uri _url = Uri.parse(roomDetailEntity.tourUrl);
+                if (!await launchUrl(_url)) {
+                  throw Exception('Could not launch $_url');
+                }
+              },
+              child: Text(
+                Localization.of(context).look3dtour,
                 style: theme.textTheme.titleSmall?.copyWith(
                   color: AppColors.white,
                 ),

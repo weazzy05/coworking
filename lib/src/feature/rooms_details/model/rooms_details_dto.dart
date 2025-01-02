@@ -22,6 +22,7 @@ class RoomDetailEntity with _$RoomDetailEntity {
     required String title,
     required String description,
     required List<String> includedAdvantages,
+    required String tourUrl,
     required List<String> imagesPath,
   }) = _RoomDetailEntity;
 

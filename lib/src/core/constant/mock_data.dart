@@ -114,6 +114,18 @@ abstract class MockData {
     };
   }
 
+  static String getUrlForRoomTourFromId(String id) {
+    return switch (id) {
+      '1' => 'https://my.matterport.com/show/?m=iTMPxVdjPFm&ts=1',
+      '2' => 'https://my.matterport.com/show/?m=sGHkciiW1P5&ts=1',
+      '3' => 'https://matterport.com/discover/space/9BjtN8oppRH',
+      '4' => 'https://my.matterport.com/show/?m=DYbPTp3j5yQ',
+      '5' => 'https://my.matterport.com/show/?m=PXpT4UMebLk',
+      '6' => 'https://my.matterport.com/show/?m=VpXFapW24tP',
+      _ => '',
+    };
+  }
+
   static List<String> getIncludedAdvantagesForRoomFromId(String id) {
     return switch (id) {
       '1' => [

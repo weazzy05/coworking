@@ -48,6 +48,7 @@ final class RoomsDetailsDataSourceLocal implements RoomsDetailsDataSource {
         RoomDetailEntity(
           title: '',
           description: MockData.getDescriptionForRoomFromId(id),
+          tourUrl: MockData.getUrlForRoomTourFromId(id),
           includedAdvantages: MockData.getIncludedAdvantagesForRoomFromId(id),
           imagesPath: [MockData.getImageForRoomFromId(id)],
         ),
