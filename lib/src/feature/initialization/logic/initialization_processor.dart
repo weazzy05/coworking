@@ -1,6 +1,8 @@
 import 'package:coworking_mobile/src/core/constant/config.dart';
 import 'package:coworking_mobile/src/core/utils/logger.dart';
 import 'package:coworking_mobile/src/feature/app/logic/tracking_manager.dart';
+import 'package:coworking_mobile/src/feature/country_list/data/country_list_data_source.dart';
+import 'package:coworking_mobile/src/feature/country_list/data/country_list_repository.dart';
 import 'package:coworking_mobile/src/feature/initialization/model/dependencies.dart';
 import 'package:coworking_mobile/src/feature/rooms_details/data/rooms_details_data_source.dart';
 import 'package:coworking_mobile/src/feature/rooms_details/data/rooms_details_repository.dart';
@@ -32,6 +34,8 @@ final class InitializationProcessor {
     const roomsRepository = RoomsListRepositoryImpl(RoomsListDataSourceLocal());
     const roomsDetailsRepository =
         RoomsDetailsRepositoryImpl(RoomsDetailsDataSourceLocal());
+    final countryListRepository =
+        CountryListRepositoryImpl(CountryListDataSourceLocal());
 
     return Dependencies(
       sharedPreferences: sharedPreferences,
@@ -39,6 +43,7 @@ final class InitializationProcessor {
       errorTrackingManager: errorTrackingManager,
       roomsListRepository: roomsRepository,
       roomsDetailsRepository: roomsDetailsRepository,
+      countryListRepository: countryListRepository,
     );
   }
 

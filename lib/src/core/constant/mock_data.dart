@@ -1,87 +1,31 @@
 import 'package:coworking_mobile/src/core/constant/assets_path.dart';
+import 'package:coworking_mobile/src/feature/country_list/model/country_dto.dart';
 import 'package:coworking_mobile/src/feature/rooms_list/model/rooms_dto.dart';
 
 abstract class MockData {
-  static List<Rooms> getRooms() {
-    final rooms = <Rooms>[
-      Rooms(
+  static List<CountryDto> getCountries() {
+    final countries = <CountryDto>[
+      CountryDto(
         id: '1',
-        square: 900,
-        city: 'Başakşehir',
-        imagesPath: [
-          Room1Images.roomExample1,
-          Room1Images.roomExample2,
-          Room1Images.roomExample3,
-          Room1Images.roomExample4,
-          Room1Images.roomExample5,
-          Room1Images.roomExample6,
-        ],
+        name: 'Cтамбул',
+        imagePath: CitiesImages.istanbul,
       ),
-      Rooms(
+      CountryDto(
         id: '2',
-        square: 110,
-        city: 'Başakşehir',
-        imagesPath: [
-          Room2Images.roomExample1,
-          Room2Images.roomExample2,
-          Room2Images.roomExample3,
-          Room2Images.roomExample4,
-          Room2Images.roomExample5,
-        ],
-      ),
-      Rooms(
-        id: '3',
-        square: 500,
-        city: 'Başakşehir',
-        imagesPath: [
-          Room3Images.roomExample1,
-          Room3Images.roomExample2,
-          Room3Images.roomExample3,
-          Room3Images.roomExample4,
-          Room3Images.roomExample5,
-          Room3Images.roomExample6,
-        ],
-      ),
-      Rooms(
-        id: '4',
-        square: 140,
-        city: 'Başakşehir',
-        imagesPath: [
-          Room4Images.roomExample1,
-          Room4Images.roomExample2,
-          Room4Images.roomExample3,
-          Room4Images.roomExample4,
-          Room4Images.roomExample5,
-          Room4Images.roomExample6,
-        ],
-      ),
-      Rooms(
-        id: '5',
-        square: 1500,
-        city: 'BEYLİKDÜZÜ',
-        imagesPath: [
-          Room5Images.roomExample1,
-          Room5Images.roomExample2,
-          Room5Images.roomExample3,
-          Room5Images.roomExample4,
-          Room5Images.roomExample5,
-        ],
-      ),
-      Rooms(
-        id: '6',
-        square: 500,
-        city: 'Maslak',
-        imagesPath: [
-          Room6Images.roomExample1,
-          Room6Images.roomExample2,
-          Room6Images.roomExample3,
-          Room6Images.roomExample4,
-          Room6Images.roomExample5,
-        ],
+        name: 'Москва',
+        imagePath: CitiesImages.moscow,
       ),
     ];
+    return countries;
+  }
 
-    return rooms;
+  static List<Rooms> getRooms({required String cityId}) {
+    return coworkings.where((coworking) => coworking.cityId == cityId).toList();
+  }
+
+  static Rooms getCoworkingDetails(String coworkingId) {
+    return MockData.coworkings
+        .firstWhere((coworking) => coworking.id == coworkingId);
   }
 
   static String getImageForRoomFromId(String id) {
@@ -182,4 +126,88 @@ abstract class MockData {
       _ => [],
     };
   }
+
+  static final List<Rooms> coworkings = [
+    Rooms(
+      id: '1',
+      cityId: '1',
+      square: 900,
+      city: 'Başakşehir',
+      imagesPath: [
+        Room1Images.roomExample1,
+        Room1Images.roomExample2,
+        Room1Images.roomExample3,
+        Room1Images.roomExample4,
+        Room1Images.roomExample5,
+        Room1Images.roomExample6,
+      ],
+    ),
+    Rooms(
+      id: '2',
+      cityId: '1',
+      square: 110,
+      city: 'Başakşehir',
+      imagesPath: [
+        Room2Images.roomExample1,
+        Room2Images.roomExample2,
+        Room2Images.roomExample3,
+        Room2Images.roomExample4,
+        Room2Images.roomExample5,
+      ],
+    ),
+    Rooms(
+      id: '3',
+      cityId: '1',
+      square: 500,
+      city: 'Başakşehir',
+      imagesPath: [
+        Room3Images.roomExample1,
+        Room3Images.roomExample2,
+        Room3Images.roomExample3,
+        Room3Images.roomExample4,
+        Room3Images.roomExample5,
+        Room3Images.roomExample6,
+      ],
+    ),
+    Rooms(
+      id: '4',
+      cityId: '1',
+      square: 140,
+      city: 'Başakşehir',
+      imagesPath: [
+        Room4Images.roomExample1,
+        Room4Images.roomExample2,
+        Room4Images.roomExample3,
+        Room4Images.roomExample4,
+        Room4Images.roomExample5,
+        Room4Images.roomExample6,
+      ],
+    ),
+    Rooms(
+      id: '5',
+      cityId: '1',
+      square: 1500,
+      city: 'BEYLİKDÜZÜ',
+      imagesPath: [
+        Room5Images.roomExample1,
+        Room5Images.roomExample2,
+        Room5Images.roomExample3,
+        Room5Images.roomExample4,
+        Room5Images.roomExample5,
+      ],
+    ),
+    Rooms(
+      id: '6',
+      cityId: '1',
+      square: 500,
+      city: 'Maslak',
+      imagesPath: [
+        Room6Images.roomExample1,
+        Room6Images.roomExample2,
+        Room6Images.roomExample3,
+        Room6Images.roomExample4,
+        Room6Images.roomExample5,
+      ],
+    ),
+  ];
 }

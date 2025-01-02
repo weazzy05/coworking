@@ -1,22 +1,20 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'rooms_dto.freezed.dart';
+part 'rooms_dto.g.dart';
+
 /// Rooms model
-class Rooms {
+///
+@freezed
+class Rooms with _$Rooms {
   /// Rooms create
-  const Rooms({
-    required this.id,
-    required this.square,
-    required this.city,
-    required this.imagesPath,
-  });
+  factory Rooms({
+    required String id,
+    required String cityId,
+    required int square,
+    required String city,
+    required List<String> imagesPath,
+  }) = _Rooms;
 
-  /// Rooms id
-  final String id;
-
-  /// Rooms square
-  final int square;
-
-  /// Rooms city
-  final String city;
-
-  /// Rooms images
-  final List<String> imagesPath;
+  factory Rooms.fromJson(Map<String, dynamic> json) => _$RoomsFromJson(json);
 }

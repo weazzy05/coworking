@@ -98,6 +98,9 @@ flutter:
     - assets/images/png/room_4/
     - assets/images/png/room_5/
     - assets/images/png/room_6/
+    - assets/images/png/cities/istanbul/
+    - assets/images/png/cities/moscow/
+    - assets/images/png/cities/baku/
   fonts:
     - family: GTEestiProDisplay
       fonts:

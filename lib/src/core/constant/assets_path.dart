@@ -22,6 +22,14 @@ abstract class SvgAssetPath {
   static const String iconPinMap = '$_path/icon_pin_map.svg';
 }
 
+abstract class CitiesImages {
+  static const String istanbul =
+      'assets/images/png/cities/istanbul/mosque.webp';
+  static const String moscow =
+      'assets/images/png/cities/moscow/moscow_city.webp';
+  static const String baku = 'assets/images/png/cities/baku/baku.webp';
+}
+
 abstract class Room1Images {
   static const String roomExample1 = 'assets/images/png/room_1/1.webp';
   static const String roomExample2 = 'assets/images/png/room_1/2.webp';

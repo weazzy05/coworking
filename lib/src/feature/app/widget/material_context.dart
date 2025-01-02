@@ -1,4 +1,5 @@
 import 'package:coworking_mobile/src/core/constant/localization/localization.dart';
+import 'package:coworking_mobile/src/feature/country_list/widget/country_list_screen.dart';
 import 'package:coworking_mobile/src/feature/rooms_details/widget/rooms_details_screen.dart';
 import 'package:coworking_mobile/src/feature/rooms_list/widget/rooms_list_screen.dart';
 import 'package:coworking_mobile/src/feature/settings/widget/settings_scope.dart';
@@ -46,15 +47,23 @@ final _router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const RoomsListScreen(),
+      builder: (context, state) => const CountryListScreen(),
       routes: [
         GoRoute(
-          path: 'room/:roomId',
-          name: 'room_details',
-          // FIXME detail
-          builder: (context, state) => RoomsDetailsScreen(
-            roomId: state.pathParameters['roomId']!,
+          path: 'rooms/:cityId',
+          name: 'rooms',
+          builder: (context, state) => RoomsListScreen(
+            cityId: state.pathParameters['cityId']!,
           ),
+          routes: [
+            GoRoute(
+              path: 'room/:roomId',
+              name: 'room_details',
+              builder: (context, state) => RoomsDetailsScreen(
+                roomId: state.pathParameters['roomId']!,
+              ),
+            ),
+          ],
         ),
       ],
     ),
