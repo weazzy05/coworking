@@ -7,12 +7,12 @@ abstract class MockData {
     final countries = <CountryDto>[
       CountryDto(
         id: '1',
-        name: 'Cтамбул',
+        name: 'Istanbul',
         imagePath: CitiesImages.istanbul,
       ),
       CountryDto(
         id: '2',
-        name: 'Москва',
+        name: 'Moscow',
         imagePath: CitiesImages.moscow,
       ),
     ];
@@ -36,6 +36,7 @@ abstract class MockData {
       '4' => Room4Images.roomExample5,
       '5' => Room5Images.roomDetail,
       '6' => Room6Images.roomExample1,
+      '33' => Room33Images.roomDetail,
       _ => Room2Images.roomDetail,
     };
   }
@@ -54,6 +55,8 @@ abstract class MockData {
         '''Полностью оборудованный смарт офис общей площадью 1500 кв.м, находящийся в центре оживленного района Стамбула''',
       '6' =>
         '''Полностью оборудованный смарт офис, общей площадью 500 кв.м, находящийся в деловом центре Стамбула''',
+      '33' =>
+        '''Полностью оборудованный смарт офисы. Расположенные в Москва-сити Башня Федерация.''',
       _ => '',
     };
   }
@@ -66,6 +69,7 @@ abstract class MockData {
       '4' => 'https://my.matterport.com/show/?m=DYbPTp3j5yQ',
       '5' => 'https://my.matterport.com/show/?m=PXpT4UMebLk',
       '6' => 'https://my.matterport.com/show/?m=VpXFapW24tP',
+      '33' => 'https://my.matterport.com/show/?m=ed28E2TmHQ2',
       _ => '',
     };
   }
@@ -122,6 +126,15 @@ abstract class MockData {
           'Чай/кофе/вода/кухня',
           'Терраса с рабочими местами',
           'Зоны отдыха',
+        ],
+      '33' => [
+          'Переговорные комнаты',
+          'Юридический и почтовая ячейка',
+          'Лаунж-зоны',
+          'Высокоскоростной интернет',
+          'Чай/кофе/вода/кухня',
+          'Студия',
+          'Услуги ресепшн',
         ],
       _ => [],
     };
@@ -207,6 +220,20 @@ abstract class MockData {
         Room6Images.roomExample3,
         Room6Images.roomExample4,
         Room6Images.roomExample5,
+      ],
+    ),
+    Rooms(
+      id: '33',
+      cityId: '2',
+      square: 800,
+      city: 'Москва-Сити',
+      imagesPath: [
+        Room33Images.roomExample1,
+        Room33Images.roomExample2,
+        Room33Images.roomExample3,
+        Room33Images.roomExample4,
+        Room33Images.roomExample5,
+        Room33Images.roomExample6,
       ],
     ),
   ];

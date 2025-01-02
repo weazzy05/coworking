@@ -92,12 +92,13 @@ flutter:
     - assets/images/svg/
     - assets/images/png/rooms_fake/
     - assets/images/png/rooms_details_fake/
-    - assets/images/png/room_1/
-    - assets/images/png/room_2/
-    - assets/images/png/room_3/
-    - assets/images/png/room_4/
-    - assets/images/png/room_5/
-    - assets/images/png/room_6/
+    - assets/images/png/cities/istanbul/room_1/
+    - assets/images/png/cities/istanbul/room_2/
+    - assets/images/png/cities/istanbul/room_3/
+    - assets/images/png/cities/istanbul/room_4/
+    - assets/images/png/cities/istanbul/room_5/
+    - assets/images/png/cities/istanbul/room_6/
+    - assets/images/png/cities/moscow/rooms_33/
     - assets/images/png/cities/istanbul/
     - assets/images/png/cities/moscow/
     - assets/images/png/cities/baku/
