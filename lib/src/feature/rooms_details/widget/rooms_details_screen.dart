@@ -147,6 +147,7 @@ class RoomDetailBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final tourUrl = roomDetailEntity.tourUrl;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -203,29 +204,30 @@ class RoomDetailBody extends StatelessWidget {
             ),
           ),
           SizedBox(height: 24),
-          SizedBox(
-            height: 52,
-            width: 358,
-            child: ElevatedButton(
-              onPressed: () async {
-                final Uri _url = Uri.parse(roomDetailEntity.tourUrl);
-                if (!await launchUrl(_url)) {
-                  throw Exception('Could not launch $_url');
-                }
-              },
-              child: Text(
-                Localization.of(context).look3dtour,
-                style: theme.textTheme.titleSmall?.copyWith(
-                  color: AppColors.white,
+          if (tourUrl != null)
+            SizedBox(
+              height: 52,
+              width: 358,
+              child: ElevatedButton(
+                onPressed: () async {
+                  final Uri _url = Uri.parse(tourUrl);
+                  if (!await launchUrl(_url)) {
+                    throw Exception('Could not launch $_url');
+                  }
+                },
+                child: Text(
+                  Localization.of(context).look3dtour,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    color: AppColors.white,
+                  ),
                 ),
-              ),
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12), // <-- Radius
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12), // <-- Radius
+                  ),
                 ),
               ),
             ),
-          ),
           SizedBox(height: 24),
         ],
       ),

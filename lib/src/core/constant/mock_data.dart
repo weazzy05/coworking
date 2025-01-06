@@ -15,6 +15,11 @@ abstract class MockData {
         name: 'Moscow',
         imagePath: CitiesImages.moscow,
       ),
+      CountryDto(
+        id: '3',
+        name: 'Baku',
+        imagePath: CitiesImages.baku,
+      ),
     ];
     return countries;
   }
@@ -36,6 +41,7 @@ abstract class MockData {
       '4' => Room4Images.roomExample5,
       '5' => Room5Images.roomDetail,
       '6' => Room6Images.roomExample1,
+      '7' => Room7Images.roomExample4,
       '33' => Room33Images.roomDetail,
       _ => Room2Images.roomDetail,
     };
@@ -57,11 +63,12 @@ abstract class MockData {
         '''Полностью оборудованный смарт офис, общей площадью 500 кв.м, находящийся в деловом центре Стамбула''',
       '33' =>
         '''Полностью оборудованный смарт офисы. Расположенные в Москва-сити Башня Федерация.''',
+      '7' => '''Полностью оборудованный смарт офис общей площадью 300 кв.м.''',
       _ => '',
     };
   }
 
-  static String getUrlForRoomTourFromId(String id) {
+  static String? getUrlForRoomTourFromId(String id) {
     return switch (id) {
       '1' => 'https://my.matterport.com/show/?m=iTMPxVdjPFm&ts=1',
       '2' => 'https://my.matterport.com/show/?m=sGHkciiW1P5&ts=1',
@@ -70,7 +77,7 @@ abstract class MockData {
       '5' => 'https://my.matterport.com/show/?m=PXpT4UMebLk',
       '6' => 'https://my.matterport.com/show/?m=VpXFapW24tP',
       '33' => 'https://my.matterport.com/show/?m=ed28E2TmHQ2',
-      _ => '',
+      _ => null,
     };
   }
 
@@ -134,6 +141,16 @@ abstract class MockData {
           'Высокоскоростной интернет',
           'Чай/кофе/вода/кухня',
           'Студия',
+          'Услуги ресепшн',
+        ],
+      '7' => [
+          'Переговорные комнаты',
+          'Юредический и почтовый адрес',
+          'Лаунж-зоны',
+          'Высокоскоростной интернет',
+          'Чай, кофе, вода, кухонная зона',
+          'Студия',
+          'Массажные кресла',
           'Услуги ресепшн',
         ],
       _ => [],
@@ -234,6 +251,18 @@ abstract class MockData {
         Room33Images.roomExample4,
         Room33Images.roomExample5,
         Room33Images.roomExample6,
+      ],
+    ),
+    Rooms(
+      id: '7',
+      cityId: '3',
+      square: 300,
+      city: 'Baku',
+      imagesPath: [
+        Room7Images.roomExample1,
+        Room7Images.roomExample2,
+        Room7Images.roomExample3,
+        Room7Images.roomExample4,
       ],
     ),
   ];

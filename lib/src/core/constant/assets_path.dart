@@ -134,3 +134,14 @@ abstract class Room33Images {
   static const String roomDetail =
       'assets/images/png/cities/moscow/rooms_33/detail.webp';
 }
+
+abstract class Room7Images {
+  static const String roomExample1 =
+      'assets/images/png/cities/baku/rooms_7/1.webp';
+  static const String roomExample2 =
+      'assets/images/png/cities/baku/rooms_7/2.webp';
+  static const String roomExample3 =
+      'assets/images/png/cities/baku/rooms_7/3.webp';
+  static const String roomExample4 =
+      'assets/images/png/cities/baku/rooms_7/4.webp';
+}
