@@ -9,7 +9,7 @@ import 'package:http/http.dart';
 /// {@endtemplate}
 abstract interface class RoomsListDataSource {
   /// Get the list of rooms
-  Future<List<Rooms>> getRoomsList();
+  Future<List<Rooms>> getRoomsList(String cityId);
 }
 
 /// {@macro rooms_list_data_source}
@@ -20,7 +20,7 @@ final class RoomsListDataSourceNetwork implements RoomsListDataSource {
   const RoomsListDataSourceNetwork(this._client);
 
   @override
-  Future<List<Rooms>> getRoomsList() async {
+  Future<List<Rooms>> getRoomsList(String cityId) async {
     final response = await _client.get(Uri.parse('/rooms'));
     final json = jsonDecode(response.body) as List<Object?>;
 
@@ -28,6 +28,7 @@ final class RoomsListDataSourceNetwork implements RoomsListDataSource {
       if (e
           case {
             'id': final String id,
+            'city_id': final String cityId,
             'square': final int square,
             'city': final String city,
             'imagesPath': final List<String> imagesPath,
@@ -35,6 +36,7 @@ final class RoomsListDataSourceNetwork implements RoomsListDataSource {
         return Rooms(
           id: id,
           square: square,
+          cityId: cityId,
           city: city,
           imagesPath: imagesPath,
         );
@@ -53,5 +55,6 @@ final class RoomsListDataSourceLocal implements RoomsListDataSource {
   const RoomsListDataSourceLocal();
 
   @override
-  Future<List<Rooms>> getRoomsList() async => MockData.getRooms();
+  Future<List<Rooms>> getRoomsList(String cityId) async =>
+      MockData.getRooms(cityId: cityId);
 }

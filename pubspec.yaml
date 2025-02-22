@@ -92,12 +92,17 @@ flutter:
     - assets/images/svg/
     - assets/images/png/rooms_fake/
     - assets/images/png/rooms_details_fake/
-    - assets/images/png/room_1/
-    - assets/images/png/room_2/
-    - assets/images/png/room_3/
-    - assets/images/png/room_4/
-    - assets/images/png/room_5/
-    - assets/images/png/room_6/
+    - assets/images/png/cities/istanbul/room_1/
+    - assets/images/png/cities/istanbul/room_2/
+    - assets/images/png/cities/istanbul/room_3/
+    - assets/images/png/cities/istanbul/room_4/
+    - assets/images/png/cities/istanbul/room_5/
+    - assets/images/png/cities/istanbul/room_6/
+    - assets/images/png/cities/moscow/rooms_33/
+    - assets/images/png/cities/baku/rooms_7/
+    - assets/images/png/cities/istanbul/
+    - assets/images/png/cities/moscow/
+    - assets/images/png/cities/baku/
   fonts:
     - family: GTEestiProDisplay
       fonts:
@@ -122,11 +127,11 @@ flutter_launcher_icons:
 #  image_path_ios: "assets/images/icon-1024x1024.png"
   android: true # can specify file name here e.g. "ic_launcher"
   ios: true # can specify file name here e.g. "My-Launcher-Icon"
-  adaptive_icon_background: "#ffffff" # only available for Android 8.0 devices and above
+  adaptive_icon_background: "#ff1E1E1F" # only available for Android 8.0 devices and above
   adaptive_icon_foreground: "assets/images/android_logo.png" # only available for Android 8.0 devices and above
   min_sdk_android: 21 # android min sdk min:16, default 21
   remove_alpha_ios: true
-  background_color_ios: "#ffffff"
+  background_color_ios: "#ff1E1E1F"
 
   web:
     generate: true

@@ -6,7 +6,7 @@ import 'package:coworking_mobile/src/feature/rooms_list/model/rooms_dto.dart';
 /// {@endtemplate}
 abstract interface class RoomsListRepository {
   /// Get the list of pokemons
-  Future<List<Rooms>> getRooms();
+  Future<List<Rooms>> getRooms(String cityId);
 }
 
 /// {@macro rooms_repository}
@@ -17,5 +17,6 @@ final class RoomsListRepositoryImpl implements RoomsListRepository {
   const RoomsListRepositoryImpl(this._dataSource);
 
   @override
-  Future<List<Rooms>> getRooms() => _dataSource.getRoomsList();
+  Future<List<Rooms>> getRooms(String cityId) =>
+      _dataSource.getRoomsList(cityId);
 }

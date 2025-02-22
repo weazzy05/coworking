@@ -57,7 +57,7 @@ class _RoomsCoworkingCardState extends State<RoomsCoworkingCard> {
         onTap: () {
           context.goNamed(
             'room_details',
-            pathParameters: {'roomId': rooms.id},
+            pathParameters: {'roomId': rooms.id, 'cityId': rooms.cityId},
           );
         },
         child: SizedBox(

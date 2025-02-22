@@ -9,11 +9,11 @@ class RoomsListCubit extends Cubit<RoomsListState> {
     this._roomsListRepository,
   ) : super(const RoomsListState.idle());
 
-  Future<void> load() async {
+  Future<void> load(String cityId) async {
     try {
       emit(RoomsListState.loading(roomsList: state.roomsList));
-      final roomsList = await _roomsListRepository.getRooms();
-      await Future<void>.delayed(Duration(seconds: 3));
+      final roomsList = await _roomsListRepository.getRooms(cityId);
+      await Future<void>.delayed(Duration(seconds: 1, milliseconds: 500));
       emit(RoomsListState.loaded(roomsList: roomsList));
     } on Object catch (e, st) {
       onError(e, st);

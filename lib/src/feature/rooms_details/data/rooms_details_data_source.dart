@@ -38,11 +38,10 @@ final class RoomsDetailsDataSourceLocal implements RoomsDetailsDataSource {
 
   @override
   Future<RoomsDetails> getRoomsDetails(String id) async {
-    final rooms = MockData.getRooms();
-    final roomWithSameId = rooms.firstWhere((element) => element.id == id);
+    final room = MockData.getCoworkingDetails(id);
     return RoomsDetails(
-      id: roomWithSameId.id,
-      city: roomWithSameId.city,
+      id: room.id,
+      city: room.city,
       titleImage: PngAssetPath.titleFakeRoom,
       rooms: [
         RoomDetailEntity(
