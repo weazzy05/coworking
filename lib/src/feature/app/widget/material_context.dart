@@ -1,4 +1,6 @@
 import 'package:coworking_mobile/src/core/constant/localization/localization.dart';
+import 'package:coworking_mobile/src/feature/acselerator/widget/acselerator_screen.dart';
+import 'package:coworking_mobile/src/feature/acselerator_details/widget/acselerator_details_screen.dart';
 import 'package:coworking_mobile/src/feature/country_list/widget/country_list_screen.dart';
 import 'package:coworking_mobile/src/feature/rooms_details/widget/rooms_details_screen.dart';
 import 'package:coworking_mobile/src/feature/rooms_list/widget/rooms_list_screen.dart';
@@ -62,6 +64,20 @@ final _router = GoRouter(
               name: 'room_details',
               builder: (context, state) => RoomsDetailsScreen(
                 roomId: state.pathParameters['roomId']!,
+              ),
+            ),
+          ],
+        ),
+        GoRoute(
+          path: 'acselerators',
+          name: 'acselerators',
+          builder: (context, state) => AcseleratorListScreen(),
+          routes: [
+            GoRoute(
+              path: 'acselerator/:id',
+              name: 'acselerator_details',
+              builder: (context, state) => AcseleratorDetailsScreen(
+                acselectorId: state.pathParameters['id']!,
               ),
             ),
           ],

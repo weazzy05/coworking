@@ -1,4 +1,5 @@
 import 'package:coworking_mobile/src/core/constant/assets_path.dart';
+import 'package:coworking_mobile/src/feature/acselerator/model/acselerator_dto.dart';
 import 'package:coworking_mobile/src/feature/country_list/model/country_dto.dart';
 import 'package:coworking_mobile/src/feature/rooms_list/model/rooms_dto.dart';
 
@@ -29,8 +30,7 @@ abstract class MockData {
   }
 
   static Rooms getCoworkingDetails(String coworkingId) {
-    return MockData.coworkings
-        .firstWhere((coworking) => coworking.id == coworkingId);
+    return coworkings.firstWhere((coworking) => coworking.id == coworkingId);
   }
 
   static String getImageForRoomFromId(String id) {
@@ -264,6 +264,42 @@ abstract class MockData {
         Room7Images.roomExample3,
         Room7Images.roomExample4,
       ],
+    ),
+  ];
+
+  static List<Acselerator> getAcselerators() {
+    return MockData.acselerators;
+  }
+
+  static Acselerator getAcselectorById(String acselectorId) {
+    return acselerators
+        .firstWhere((acselector) => acselector.id == acselectorId);
+  }
+
+  static String getDescriptionForAcselectorFromId(String id) {
+    return switch (id) {
+      '1' =>
+        '''Проект о продвижении на маркетплейсах в 2024 году с фокусом на D2C-продажи, ИИ-оптимизацию, таргетинг через соцсети и автоматизацию клиентского сервиса. Основан на опыте Amazon и адаптирован для Ozon/Wildberries.
+
+Автор — Хан Оджагов.''',
+      '2' =>
+        '''Проект о продвижении на маркетплейсах в 2024 году с фокусом на D2C-продажи, ИИ-оптимизацию, таргетинг через соцсети и автоматизацию клиентского сервиса. Основан на опыте Amazon и адаптирован для Ozon/Wildberries.
+
+Автор — Хан Оджагов.''',
+      _ => '',
+    };
+  }
+
+  static final List<Acselerator> acselerators = [
+    Acselerator(
+      id: '1',
+      imagePath: PdfAssetPath.firstLogo,
+      pdfPath: PdfAssetPath.first,
+    ),
+    Acselerator(
+      id: '2',
+      imagePath: PdfAssetPath.secondLogo,
+      pdfPath: PdfAssetPath.second,
     ),
   ];
 }

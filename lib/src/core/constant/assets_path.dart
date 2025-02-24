@@ -2,6 +2,8 @@ abstract class PngAssetPath {
   static const String _path = 'assets/images/png';
   static const String logo = '$_path/rooms_logo.png';
   static const String iconArea = '$_path/icon_area.png';
+  static const String acselerator = '$_path/acselerator.png';
+  static const String acseleratorLogo = '$_path/acselerator_logo.png';
   static const String roomListAppbar = '$_path/room_list_appbar.png';
   static const String promotionExample = '$_path/promotion_example.png';
   static const String requestSended = '$_path/request_sended.png';
@@ -20,6 +22,16 @@ abstract class SvgAssetPath {
   static const String _path = 'assets/images/svg';
   static const String iconArea = '$_path/icon_area.svg';
   static const String iconPinMap = '$_path/icon_pin_map.svg';
+}
+
+abstract class PdfAssetPath {
+  static const String _path = 'assets/pdfs';
+  static const String first = '$_path/first.pdf';
+  static const String firstLogo = '$_path/first_logo.png';
+  static const String second = '$_path/second.pdf';
+  static const String secondLogo = '$_path/second_logo.png';
+  static const String third = '$_path/third.pdf';
+  static const String thirdLogo = '$_path/third_logo.png';
 }
 
 abstract class CitiesImages {

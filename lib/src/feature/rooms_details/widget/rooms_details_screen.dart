@@ -197,6 +197,7 @@ class RoomDetailBody extends StatelessWidget {
                 ),
               ),
               style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.purple,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12), // <-- Radius
                 ),
@@ -222,6 +223,7 @@ class RoomDetailBody extends StatelessWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.purple,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12), // <-- Radius
                   ),
