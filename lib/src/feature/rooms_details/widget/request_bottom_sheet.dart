@@ -132,6 +132,7 @@ class _InputInformationForSubmitState extends State<InputInformationForSubmit> {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.purple,
                             shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.circular(12), // <-- Radius
@@ -169,6 +170,7 @@ class _InputInformationForSubmitState extends State<InputInformationForSubmit> {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.purple,
                             shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.circular(12), // <-- Radius

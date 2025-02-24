@@ -1,3 +1,5 @@
+import 'package:coworking_mobile/src/feature/acselerator/data/acselerator_list_repository.dart';
+import 'package:coworking_mobile/src/feature/acselerator_details/data/acselerator_details_repository.dart';
 import 'package:coworking_mobile/src/feature/app/logic/tracking_manager.dart';
 import 'package:coworking_mobile/src/feature/country_list/data/country_list_repository.dart';
 import 'package:coworking_mobile/src/feature/rooms_details/data/rooms_details_repository.dart';
@@ -17,6 +19,8 @@ base class Dependencies {
     required this.roomsListRepository,
     required this.roomsDetailsRepository,
     required this.countryListRepository,
+    required this.acseleratorListRepository,
+    required this.acseleratorDetailsRepository,
   });
 
   /// [SharedPreferences] instance, used to store Key-Value pairs.
@@ -34,6 +38,10 @@ base class Dependencies {
   final RoomsDetailsRepository roomsDetailsRepository;
 
   final CountryListRepository countryListRepository;
+
+  final AcseleratorListRepository acseleratorListRepository;
+
+  final AcseleratorDetailsRepository acseleratorDetailsRepository;
 }
 
 /// {@template initialization_result}

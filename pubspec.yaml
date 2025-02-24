@@ -10,7 +10,7 @@ version: 0.0.1+4
 
 environment:
   sdk: ">=3.0.5 <4.0.0"
-  flutter: ">=3.10.5 <4.0.0"
+  flutter: ">=3.27.1 <4.0.0"
 
 dependencies:
   # Flutter SDK
@@ -48,14 +48,16 @@ dependencies:
   shared_preferences: ^2.2.2
   drift: ^2.13.1
   sqlite3_flutter_libs: ^0.5.18
+  permission_handler: ^11.4.0
 
   # Logging
   stack_trace: ^1.11.0
-  sentry_flutter: ^7.12.0
+  sentry_flutter: ^8.13.2
   logging: ^1.2.0
 
   # Utils
   pure: ^0.2.0
+  pdfx: ^2.8.0
   platform_info: ^4.0.2
   path: ^1.8.3
   path_provider: ^2.1.0
@@ -103,6 +105,7 @@ flutter:
     - assets/images/png/cities/istanbul/
     - assets/images/png/cities/moscow/
     - assets/images/png/cities/baku/
+    - assets/pdfs/
   fonts:
     - family: GTEestiProDisplay
       fonts:

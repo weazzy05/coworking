@@ -49,88 +49,85 @@ class _RoomsListScreenState extends State<RoomsListScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 160,
-        automaticallyImplyLeading: false,
-        backgroundColor: AppColors.transparent,
-        shadowColor: AppColors.transparent,
-        scrolledUnderElevation: 0,
-        flexibleSpace: Column(
-          children: [
-            Stack(children: [
-              SizedBox(
-                height: 180,
-                width: MediaQuery.of(context).size.width,
+      body: Column(
+        children: [
+          Stack(children: [
+            SizedBox(
+              height: 180,
+              width: MediaQuery.of(context).size.width,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.fitHeight,
+                    image: AssetImage(PngAssetPath.roomListAppbar),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 50,
+              left: 0,
+              child: TextButton.icon(
+                onPressed: () {
+                  context.pop();
+                },
+                icon: Icon(Icons.chevron_left, color: AppColors.white),
+                style: TextButton.styleFrom(
+                  foregroundColor: AppColors.transparent,
+                ),
+                label: Text(
+                  Localization.of(context).back,
+                  style: theme.textTheme.labelLarge
+                      ?.copyWith(fontWeight: FontWeight.w400),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 24,
+              left: 12,
+              child: SizedBox(
+                height: 28,
+                width: 160,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      fit: BoxFit.fitHeight,
-                      image: AssetImage(PngAssetPath.roomListAppbar),
+                      fit: BoxFit.fill,
+                      image: AssetImage(PngAssetPath.logo),
                     ),
                   ),
                 ),
               ),
-              Positioned(
-                top: 50,
-                left: 0,
-                child: TextButton.icon(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  icon: Icon(Icons.chevron_left, color: AppColors.white),
-                  style: TextButton.styleFrom(
-                    foregroundColor: AppColors.transparent,
-                  ),
-                  label: Text(
-                    Localization.of(context).back,
-                    style: theme.textTheme.labelLarge
-                        ?.copyWith(fontWeight: FontWeight.w400),
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 24,
-                left: 12,
-                child: SizedBox(
-                  height: 28,
-                  width: 160,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage(PngAssetPath.logo),
-                      ),
+            ),
+          ]),
+          SizedBox(height: 16),
+          Expanded(
+            child: BlocBuilder<RoomsListCubit, RoomsListState>(
+              bloc: _roomsListCubit,
+              builder: (context, state) => state.map(
+                loaded: (data) => ListView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  addAutomaticKeepAlives: true,
+                  cacheExtent: 600,
+                  children: [
+                    _PromotionPageView(
+                      promotions: [
+                        // TODO(gamzat): from fake to data
+                        // PngAssetPath.promotionExample,
+                        // PngAssetPath.promotionExample,
+                        // PngAssetPath.promotionExample,
+                      ],
                     ),
-                  ),
+                    ...data.roomsList.map(
+                      (e) => RoomsCoworkingCard(rooms: e),
+                    ),
+                  ],
                 ),
+                idle: (_) => Center(child: CircularProgressIndicator()),
+                loading: (_) => Center(child: CircularProgressIndicator()),
               ),
-            ]),
-            SizedBox(height: 16)
-          ],
-        ),
-      ),
-      body: BlocBuilder<RoomsListCubit, RoomsListState>(
-        bloc: _roomsListCubit,
-        builder: (context, state) => state.map(
-          loaded: (data) => ListView(
-            addAutomaticKeepAlives: true,
-            children: [
-              _PromotionPageView(
-                promotions: [
-                  // TODO(gamzat): from fake to data
-                  // PngAssetPath.promotionExample,
-                  // PngAssetPath.promotionExample,
-                  // PngAssetPath.promotionExample,
-                ],
-              ),
-              ...data.roomsList.map(
-                (e) => RoomsCoworkingCard(rooms: e),
-              ),
-            ],
+            ),
           ),
-          idle: (_) => Center(child: CircularProgressIndicator()),
-          loading: (_) => Center(child: CircularProgressIndicator()),
-        ),
+        ],
       ),
     );
   }

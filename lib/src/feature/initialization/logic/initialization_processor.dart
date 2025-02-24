@@ -1,5 +1,9 @@
 import 'package:coworking_mobile/src/core/constant/config.dart';
 import 'package:coworking_mobile/src/core/utils/logger.dart';
+import 'package:coworking_mobile/src/feature/acselerator/data/acselerator_list_data_source.dart';
+import 'package:coworking_mobile/src/feature/acselerator/data/acselerator_list_repository.dart';
+import 'package:coworking_mobile/src/feature/acselerator_details/data/acselerator_details_data_source.dart';
+import 'package:coworking_mobile/src/feature/acselerator_details/data/acselerator_details_repository.dart';
 import 'package:coworking_mobile/src/feature/app/logic/tracking_manager.dart';
 import 'package:coworking_mobile/src/feature/country_list/data/country_list_data_source.dart';
 import 'package:coworking_mobile/src/feature/country_list/data/country_list_repository.dart';
@@ -36,6 +40,10 @@ final class InitializationProcessor {
         RoomsDetailsRepositoryImpl(RoomsDetailsDataSourceLocal());
     final countryListRepository =
         CountryListRepositoryImpl(CountryListDataSourceLocal());
+    final acseleratorListRepository =
+        AcseleratorListRepositoryImpl(AcseleratorListDataSourceLocal());
+    final acseleratorDetailsRepository =
+        AcseleratorDetailsRepositoryImpl(AcseleratorDetailsDataSourceLocal());
 
     return Dependencies(
       sharedPreferences: sharedPreferences,
@@ -44,6 +52,8 @@ final class InitializationProcessor {
       roomsListRepository: roomsRepository,
       roomsDetailsRepository: roomsDetailsRepository,
       countryListRepository: countryListRepository,
+      acseleratorListRepository: acseleratorListRepository,
+      acseleratorDetailsRepository: acseleratorDetailsRepository,
     );
   }
 
